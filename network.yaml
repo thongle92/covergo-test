@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  egress:
+    - ports:
+        # Allow DNS Resolution
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-from-nginx1
+spec:
+  policyTypes:
+    - Ingress
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/name: app1
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: nginx1
