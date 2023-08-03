@@ -43,3 +43,9 @@ poddisruptionbudget.policy "calico-kube-controllers" deleted
 serviceaccount "calico-kube-controllers" deleted
 
 ```
+
+## Design a multi-stage deployment pipeline
+- Propose a solution for the app1 multi-stage release pipeline.
+- Draw a principal diagram and add the required description.
+
+Refer [here](https://github.com/thongle92/covergo-test/blob/main/docs/Scenario4.md)
